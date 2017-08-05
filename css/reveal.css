@@ -1,0 +1,13 @@
+
+.reveal{width:600px;height:350px;box-shadow:0 0 30px -5px grey;background:#fff;margin:calc(50vh - 175px) auto;max-width:96%;position:relative;overflow:hidden}
+.revealleft,.revealright{width:50%;background:#dc143c;height:100%;position:absolute;left:0;transition:all 1s}
+.revealright{left:50%}
+.revealleft.revealed{left:-50%}
+.revealright.revealed{left:100%}
+.reveal button{opacity:.99;margin:15px;padding:8px 15px;background:#dc143c;border:2px solid #fff;border-radius:6px;color:#fff;cursor:pointer;position:absolute}
+.reveal button:hover{background:#fff;color:#dc143c;outline:0;border-color:#dc143c}
+.reveal button:focus{outline:0}
+
+
+img{width:160px;float:right;margin:5px 0 5px 20px}
+.ball{width:10px;height:10px;border-radius:100%;position:absolute;bottom:20px;left:50%;background:#dc143c}
