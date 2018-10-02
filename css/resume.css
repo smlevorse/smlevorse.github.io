@@ -2,16 +2,18 @@ html {
 	background-color: #e6e6e6;
 }
 
-body {
-	margin: 1% 20% 6% 20%;
-	background-color: #ffffff;
+#workspace {
+	background-color: #e6e6e6;
+	margin: 0 0 0 0;
 }
 
 #doc {
 	-moz-box-shadow: 0 0 4px 2px #888888;
 	-webkit-box-shadow: 0 0 4px 2px #888888;
+	margin: 1% 20% 6% 20%;
 	box-shadow: 0 0 4px 2px #888888;
 	padding: 2em 4em 6em 4em;
+	background-color: #ffffff;
 }
 
 h1 {
@@ -95,21 +97,32 @@ p {
 	padding-left: 2em;
 }
 
-
-@media
-only screen and (max-width: 1024px) {
-	body {
-		margin: 3% 18% 6% 18%;
-	}
-
-	table {
-		margin-left: 1em;
-		margin-right: 1em;
-	}
+#back {
+	float: left;
+	max-width: 5%;
+	margin-top: 1%;
+	margin-left: 1%;
 }
 
-@media
-only screen and (max-width: 720px) {
+#back p {
+	visibility: hidden;
+}
+
+#back img {
+	max-width:100%;
+	height: auto;
+	opacity: .1;
+	border-radius: 1em;
+}
+
+#back img:hover {
+	opacity: .3;
+	-moz-box-shadow: 0 0 4px 2px #888888;
+	-webkit-box-shadow: 0 0 4px 2px #888888;
+	box-shadow: 0 0 4px 2px #888888;
+}
+
+@media only screen and (orientation:portrait) {
 	body {
 		margin: 3% 3% 6% 3%;
 	}
@@ -118,6 +131,7 @@ only screen and (max-width: 720px) {
 		-moz-box-shadow: 0 0 4px 2px #888888;
 		-webkit-box-shadow: 0 0 4px 2px #888888;
 		box-shadow: 0 0 4px 2px #888888;
+		margin: 3% 3% 6% 3%;
 		padding: 2em 1em 4em 1em;
 	}
 
@@ -146,5 +160,27 @@ only screen and (max-width: 720px) {
 
 	.tab2 {
 		padding-left: 1em;
+	}
+
+	#back {
+		float: none;
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+		color: #b3b3b3;
+	}
+
+	#back:hover {
+		color: #888888;
+		text-decoration: none;
+	}
+
+	#back img {
+		height: 0;
+		visibility: hidden;
+	}
+
+	#back p {
+		visibility: visible;
 	}
 }
