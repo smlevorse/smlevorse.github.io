@@ -96,16 +96,15 @@
         }
 
         #sidebar-terminal {
-            width: 250px;
-            box-sizing: border-box;
-            align-self: stretch;
-            background-color: transparent;
-            border: 1px solid #30363d;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+        align-self: auto;
+        overflow: visible;
+    }
 
         .site-name {
             margin: 0.5rem 0 1rem;
@@ -148,6 +147,12 @@
             background-color: #132a1b;
             color: #7ee787;
             box-shadow: inset 2px 0 0 #3fb950;
+        }
+
+        .tree {
+            display: inline-block;
+            transform: scaleY(1.5);
+            transform-origin: 50% 50%;
         }
 
         /* MAIN WRAPPER: takes all remaining width */
@@ -323,13 +328,122 @@
         }
 
         @media (max-width: 800px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                min-height: 100dvh;   /* better fit for mobile browsers with moving toolbars */
+                overflow: visible;
+            }
+
+            #title-bar {
+                margin: 12px 12px 0;
+                padding: 8px 12px;
+                font-size: large;
+            }
+
             #layout {
                 flex-direction: column;
-                overflow-y: auto;
+                height: auto;
+                padding: 12px;
+                gap: 12px;
+                overflow: visible;
+            }
+
+            #sidebar {
+                width: 100%;
             }
 
             #sidebar-terminal {
                 width: 100%;
+                align-self: auto;
+                overflow: visible;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1px;
+                padding: 0;
+                background-color: #30363d;
+                border: 1px solid #30363d;
+                counter-reset: nav;
+            }
+
+            .site-name {
+                grid-column: 1 / -1;
+                margin: 0;
+                padding: 10px 12px;
+                background-color: #0d1117;
+                color: #c9d1d9;
+                font-size: 1em;
+            }
+
+            /* Hide the tree characters; they only make sense in a column */
+            .tree {
+                display: none;
+            }
+
+            .nav-btn,
+            .nav-btn:visited {
+                counter-increment: nav;
+                display: block;
+                width: auto;
+                padding: 10px 12px;
+                background-color: #0d1117;
+                border-radius: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1;
+            }
+
+            .nav-btn::before {
+                content: "[" counter(nav) "] ";
+                color: #8b949e;
+            }
+
+            .nav-btn:hover {
+                background-color: #1f242c;
+                color: #58a6ff;
+            }
+
+            .nav-btn.active {
+                background-color: #132a1b;
+                color: #7ee787;
+                box-shadow: inset 3px 0 0 #3fb950;
+            }
+
+            #main-area {
+                display: block;
+                width: 100%;
+            }
+
+            #terminal-output {
+                align-self: auto;
+                overflow: visible;       /* let the page scroll instead of the box */
+                min-height: 60vh;
+                padding: 12px;
+            }
+
+            .prompt,
+            .query-text {
+                font-size: 1em;
+                overflow-wrap: anywhere; /* long SQL strings wrap instead of overflowing */
+            }
+
+            .db-row dl {
+                grid-template-columns: 1fr;   /* stack labels above values */
+                gap: 0.1rem;
+            }
+
+            .db-row dt {
+                white-space: normal;
+            }
+
+            .role {
+                margin: 0.5rem 0 0 0.25rem;
+                padding-left: 0.5rem;
+            }
+
+            .page-content iframe {
+                max-width: 100%;
             }
         }
 
@@ -355,23 +469,17 @@
             <div id="sidebar-terminal">
                 <h1 class="site-name">⛁ Sean Levorse</h1>
 
-                <a class="nav-btn" href="#/bio" data-section="bio"
-                   data-target-command="SELECT `content` FROM `bio` WHERE `user`='Sean Levorse';">├─ About Me</a>
+                <a class="nav-btn" href="#/bio" data-section="bio" data-target-command="SELECT `content` FROM `bio` WHERE `user`='Sean Levorse';"><span class="tree">├─ </span>About Me</a>
 
-                <a class="nav-btn" href="#/skills" data-section="skills"
-                   data-target-command="SELECT `name` FROM `skills`;">├─ Skills</a>
+                <a class="nav-btn" href="#/skills" data-section="skills" data-target-command="SELECT `name` FROM `skills`;"><span class="tree">├─ </span>Skills</a>
 
-                <a class="nav-btn" href="#/work-history" data-section="work-history"
-                   data-target-command="SELECT (`employer`, `role`, `description`) FROM `projects`;">├─ Work History</a>
+                <a class="nav-btn" href="#/work-history" data-section="work-history" data-target-command="SELECT (`employer`, `role`, `description`) FROM `projects`;"><span class="tree">├─ </span>Work History</a>
 
-                <a class="nav-btn" href="#/projects" data-section="projects"
-                   data-target-command="SELECT * FROM `projects`;">├─ Projects</a>
+                <a class="nav-btn" href="#/projects" data-section="projects" data-target-command="SELECT * FROM `projects`;"><span class="tree">├─ </span>Projects</a>
 
-                <a class="nav-btn" href="#/presentations" data-section="presentations"
-                   data-target-command="SELECT (`filepath`, `metadata`) FROM `presentations` WHERE `presenter`='Sean Levorse';">├─ Presentations</a>
+                <a class="nav-btn" href="#/presentations" data-section="presentations" data-target-command="SELECT (`filepath`, `metadata`) FROM `presentations` WHERE `presenter`='Sean Levorse';"><span class="tree">├─ </span>Presentations</a>
 
-                <a class="nav-btn" href="#/contact" data-section="contact"
-                   data-target-command="INSERT INTO `contacts` (`name`, `occupation`, `profileUrl`) VALUES (:name, :occupation, :profileUrl);">└─ Contact</a>
+                <a class="nav-btn" href="#/contact" data-section="contact" data-target-command="INSERT INTO `contacts` (`name`, `occupation`, `profileUrl`) VALUES (:name, :occupation, :profileUrl);"><span class="tree">└─ </span>Contact</a>
             </div>
         </nav>
 
@@ -816,7 +924,11 @@
                 transcript.appendChild(spacer);
 
                 page.classList.remove('hidden');
-                outputDiv.scrollTop = outputDiv.scrollHeight;
+                if (window.matchMedia('(max-width: 800px)').matches) {
+                    document.getElementById('main-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    outputDiv.scrollTop = outputDiv.scrollHeight;
+                }            
             }, 750);
         }
 
