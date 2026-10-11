@@ -1,0 +1,38 @@
+# Sean Levorse
+
+> Senior Data Infrastructure Engineer II at HubSpot in the Boston area, working on databases, caching and coordination systems, and data infrastructure since 2019. Builds reliable, scalable data systems and empowers engineers to use databases effectively.
+
+Sean's portfolio covers his work history, projects, skills, talks, and contact information. The portfolio is a single page, with each section available at its own URL fragment.
+
+## Work History
+
+- [Work History](https://seanlevor.se/#/work-history): HubSpot, 2019 to present. Senior Data Infra Engineer II on the Caching and Coordination team (Feb 2026 to present); Technical Lead I (July 2025 to Feb 2026); Senior Software Engineer I on the SQL and Caching and Coordination teams (2021 to 2025); Software Engineer on the Big Data and SQL teams (2019 to 2021). Earlier internships at Microsoft, HubSpot, Quality Vision International, and General Electric.
+
+## Projects
+
+- [Projects](https://seanlevor.se/#/projects): Case studies covering:
+  - Agentic Cluster Recommendations: MCP tools and an LLM agent that recommend cluster placement for new use cases. Reduced new-cluster support requests from 3-5 per week to roughly 2 per month.
+  - Caching and Coordination Feature Freeze: Led a reliability-focused freeze that reduced on-call interruptions from about 30 per week to about 3 per week.
+  - Memcached Auth and Encryption: Client-side encryption for Memcached credentials and keys, with under 1% throughput degradation compared to TLS in a proof of concept.
+  - JDBI Upgrade: Migrated more than 800 repositories off JDBI 2 using OpenRewrite automation and a migration guide.
+  - MySQL Cross-Region Replication: S3-based replication of tables from North America to other regions.
+  - MySQL Online Schema Change Service: Guardrails and a tracking UI for online schema changes using PTOSC and GhOSC.
+  - Ansible to Puppet Migration: Moved HBase, Hadoop, HDFS, and ZooKeeper configuration to Puppet, reducing rollouts from about a week to a few hours.
+  - HState: Human-readable schemas for querying HBase data.
+
+## Skills
+
+- [Skills](https://seanlevor.se/#/skills): Technical skills include distributed systems, orchestration with Docker and Kubernetes, web services, build systems, AWS, data technologies such as HBase, MySQL, Kafka, and ZooKeeper, and web infrastructure. Professional skills include technical design, project management, incident response, and communicating technical concepts. Soft skills include team leadership, conflict resolution, mentorship, and managing social capital.
+
+## Presentations
+
+- [Presentations](https://seanlevor.se/#/presentations): Talks on queuing theory for microservice performance ("Lessons From The DMV," HubSpot's internal conference, 2024) and on Hollow internals and alternative data infrastructure ("What Isn't Hollow," 2026).
+
+## Contact
+
+- [LinkedIn](https://www.linkedin.com/in/smlevorse/): Professional profile and contact.
+- [Contact](https://seanlevor.se/#/contact): Contact options.
+
+## Optional
+
+- [About Me](https://seanlevor.se/#/bio): Background, education (B.S. in Software Engineering, Rochester Institute of Technology, 2019), and interests.
