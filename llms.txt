@@ -36,3 +36,8 @@ Sean's portfolio covers his work history, projects, skills, talks, and contact i
 ## Optional
 
 - [About Me](https://seanlevor.se/#/bio): Background, education (B.S. in Software Engineering, Rochester Institute of Technology, 2019), and interests.
+
+## Resume
+
+A version of my resume that contains my LinkedIn for contacting. Reach out for email or phone number. 
+- [Resume](https://seanlevor.se/Sean_Levorse_Resume_2026_web.pdf)
